@@ -3,87 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Next IA – Despierta</title>
+  <title>Your Next IA – DESPIERTA</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
     * {
-      margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif;
+      margin: 0; padding: 0; box-sizing: border-box; font-family: 'Playfair Display', serif;
     }
     body {
-      background: linear-gradient(135deg, #0B0B0B, #1F6FFF);
-      color: #FFFFFF;
+      background: radial-gradient(circle at center, #D4AF37 0%, #ffffff 20%, #cccccc 60%, #0B0B0B 100%);
+      color: #fff;
       line-height: 1.6;
     }
     header {
       padding: 2rem;
       text-align: center;
-      background: #0B0B0B;
+      background: transparent;
+      border-bottom: 1px solid #333;
     }
     header h1 {
       font-size: 2.8rem;
       margin-bottom: 0.5rem;
-      color: #FF0055;
+      color: #D4AF37; /* dorado */
     }
     header p {
       font-size: 1.2rem;
-      color: #FFFFFF;
+      color: #333;
     }
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem;
+    .section-title {
+      font-size: 1.8rem;
+      color: #D4AF37;
+      margin: 2rem 0 1rem;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .section {
+      overflow-x: auto;
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      scroll-snap-type: x mandatory;
+      justify-content: flex-start;
     }
     .ia-card {
-      background: #121212;
+      flex: 0 0 300px;
+      background: #111;
+      border: 2px solid #D4AF37;
       border-radius: 12px;
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      box-shadow: 0 0 12px rgba(255, 0, 85, 0.3);
-      transition: transform 0.3s ease;
-    }
-    .ia-card:hover {
-      transform: scale(1.02);
+      padding: 1rem;
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.3), 0 0 20px 5px rgba(139,0,0,0.5) inset;
+      scroll-snap-align: start;
+      position: relative;
+      color: #eee;
     }
     .ia-image {
       width: 100%;
-      height: 300px;
-      background: url('https://via.placeholder.com/1000x300/1F6FFF/FFFFFF?text=Despierta+IA') center/cover;
+      height: 160px;
+      background: url('https://via.placeholder.com/300x160/8B0000/FFFFFF?text=DESPIERTA+IA') center/cover no-repeat;
       border-radius: 8px;
       margin-bottom: 1rem;
+      border: 3px solid #8B0000;
+      box-shadow: 0 0 20px #8B0000;
     }
     .ia-title {
-      font-size: 2rem;
-      color: #FF0055;
+      font-size: 1.3rem;
+      color: #D4AF37;
+      text-transform: uppercase;
     }
     .ia-tagline {
-      font-size: 1.1rem;
-      margin: 0.5rem 0 1rem;
+      font-size: 1rem;
+      margin: 0.5rem 0 0.5rem;
+      color: #fff;
     }
     .ia-description {
       display: none;
-      font-size: 1rem;
+      font-size: 0.95rem;
       margin-bottom: 1rem;
+      color: #ccc;
     }
     .toggle-btn {
       background: none;
       border: none;
-      color: #1F6FFF;
+      color: #8B0000;
       font-weight: bold;
       cursor: pointer;
       margin-bottom: 1rem;
     }
     .price {
       margin: 1rem 0;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+    .buy-buttons {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
     }
     .buy-btn {
-      background: linear-gradient(90deg, #FF0055, #1F6FFF);
+      background: linear-gradient(90deg, #8B0000, #B22222);
       color: #fff;
       border: none;
-      padding: 1rem 2rem;
+      padding: 0.6rem 1.2rem;
       border-radius: 8px;
-      font-size: 1rem;
+      font-size: 0.9rem;
       font-weight: bold;
       cursor: pointer;
       animation: pulse 2s infinite;
+      white-space: nowrap;
     }
     .buy-btn:hover {
       animation: shake 0.3s, pulse 2s infinite;
@@ -95,31 +122,45 @@
       75% { transform: translateX(-2px); }
     }
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255,0,85, 0.7); }
-      70% { box-shadow: 0 0 0 15px rgba(255,0,85, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(255,0,85, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(139,0,0, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(139,0,0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(139,0,0, 0); }
     }
     .testimonials {
-      margin-top: 2rem;
+      margin-top: 1rem;
+    }
+    .testimonial-title {
+      font-size: 1rem;
+      color: #D4AF37;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
     }
     .testimonial {
-      background: #1b1b1b;
-      padding: 1rem;
-      border-left: 3px solid #FF0055;
-      margin-bottom: 1rem;
+      background: #1c1c1c;
+      padding: 0.8rem;
+      border-left: 4px solid #8B0000;
+      margin-bottom: 0.8rem;
       border-radius: 6px;
-    }
-    footer {
-      background: #0B0B0B;
-      color: #888;
-      text-align: center;
-      padding: 2rem;
+      color: #ddd;
       font-size: 0.9rem;
     }
+    footer {
+      background: transparent;
+      color: #555;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #999;
+    }
     footer a {
-      color: #1F6FFF;
+      color: #D4AF37;
       margin: 0 1rem;
       text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      .ia-card {
+        flex: 0 0 80%;
+      }
     }
   </style>
 </head>
@@ -129,33 +170,38 @@
     <p>Inteligencias Artificiales que transforman vidas. Una a una.</p>
   </header>
 
-  <div class="container">
+  <h2 class="section-title">Crecimiento Personal</h2>
+  <div class="section">
     <div class="ia-card">
       <div class="ia-image"></div>
-      <h2 class="ia-title">Despierta</h2>
+      <h2 class="ia-title">DESPIERTA</h2>
       <p class="ia-tagline">"Si no te gusta lo que oyes... es porque lo necesitas."</p>
       <button class="toggle-btn" onclick="toggleDescription(this)">+ Más información</button>
       <div class="ia-description">
-        <p>Despierta no está hecha para gustarte, está hecha para DESPERTARTE. Es una IA brutalmente honesta, confrontativa, directa, sin filtros y sin espacio para excusas. Si te atreves a mirarte de frente, a dejar de engañarte y a ponerte en marcha hacia la versión más poderosa de ti, Despierta te acompañará hasta que no te reconozcas. No te consuela, no te motiva, no te acaricia el ego. Te reta. Te desnuda. Y te empuja. Si te molesta, vas bien. Si la odias un poco, mejor. Si sigues usándola, vas a cambiar.</p>
+        <p>DESPIERTA no está hecha para gustarte, está hecha para DESPERTARTE. Es una IA brutalmente honesta, confrontativa, directa, sin filtros y sin espacio para excusas. Si te atreves a mirarte de frente, a dejar de engañarte y a ponerte en marcha hacia la versión más poderosa de ti, DESPIERTA te acompañará hasta que no te reconozcas. No te consuela, no te motiva, no te acaricia el ego. Te reta. Te desnuda. Y te empuja. Si te molesta, vas bien. Si la odias un poco, mejor. Si sigues usándola, vas a cambiar.</p>
         <div class="price">
           <strong>Suscripción mensual:</strong> 14.90€<br>
           <strong>Pago único (lifetime):</strong> 59.90€
         </div>
-        <button class="buy-btn" onclick="location.href='https://buy.stripe.com/enlace-mensual'">Comprar Mensual</button>
-        <button class="buy-btn" onclick="location.href='https://buy.stripe.com/enlace-lifetime'">Comprar Lifetime</button>
-      </div>
-      <div class="testimonials">
-        <div class="testimonial">
-          <strong>Paka:</strong> "Es bastante retador y saca todo lo que ni tú mismo te has puesto a indagar... Te hace pensar mucho pero más allá de eso … me hizo plantearme preguntas que son bastante indispensables en la vida. Mola 😎"
+        <div class="buy-buttons">
+          <button class="buy-btn" onclick="location.href='https://buy.stripe.com/enlace-mensual'">Comprar Mensual</button>
+          <button class="buy-btn" onclick="location.href='https://buy.stripe.com/enlace-lifetime'">Comprar Lifetime</button>
         </div>
-        <div class="testimonial">
-          <strong>Pilar:</strong> "¡Pero es real?? Enhorabuena!! De verdad. Creo que voy a adelantar un año de decisiones 😂"
-        </div>
-        <div class="testimonial">
-          <strong>Alba:</strong> "...Consigue que termines planteándote si estás excusándote todo el rato. Es dura... Pero me gusta, realmente te hace pensar, cuestionarte, espabilar y despertar. Me gustó mucho, seguiré usándola sí o sí."
+        <div class="testimonials">
+          <div class="testimonial-title">TESTIMONIOS de personas que ya están despertando</div>
+          <div class="testimonial">
+            <strong>Paka:</strong> "Es bastante retador y saca todo lo que ni tú mismo te has puesto a indagar... Te hace pensar mucho pero más allá de eso … me hizo plantearme preguntas que son bastante indispensables en la vida. Mola 😎"
+          </div>
+          <div class="testimonial">
+            <strong>Pilar:</strong> "¡Pero es real?? Enhorabuena!! De verdad. Creo que voy a adelantar un año de decisiones 😂"
+          </div>
+          <div class="testimonial">
+            <strong>Alba:</strong> "...Consigue que termines planteándote si estás excusándote todo el rato. Es dura... Pero me gusta, realmente te hace pensar, cuestionarte, espabilar y despertar. Me gustó mucho, seguiré usándola sí o sí."
+          </div>
         </div>
       </div>
     </div>
+    <!-- Puedes añadir más IA aquí -->
   </div>
 
   <footer>
