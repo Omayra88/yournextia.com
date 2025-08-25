@@ -373,7 +373,11 @@ margin: 0 auto;
     <button class="buy-btn" onclick="location.href='https://buy.stripe.com/enlace-mensual'">Suscripción mensual – 14,90€</button>
     <button class="buy-btn" onclick="location.href='https://buy.stripe.com/enlace-lifetime'">Acceso lifetime – 59,90€</button>
   </div>
+<div class="faq-link-wrapper">
+  <button onclick="document.getElementById('faq').scrollIntoView({ behavior: 'smooth' })" class="faq-button">Preguntas Frecuentes</button>
 </div>
+
+
  <div class="ia-card">
   <div class="ia-image ia-image-biblica"></div>
   <h2 class="ia-title">LA PALABRA</h2>
@@ -415,7 +419,11 @@ margin: 0 auto;
     <button class="buy-btn" onclick="location.href='https://buy.stripe.com/enlace-mensual'">Suscripción mensual – 14,90€</button>
     <button class="buy-btn" onclick="location.href='https://buy.stripe.com/enlace-lifetime'">Acceso lifetime – 59,90€</button>
   </div>
+<div class="faq-link-wrapper">
+  <button onclick="document.getElementById('faq').scrollIntoView({ behavior: 'smooth' })" class="faq-button">Preguntas Frecuentes</button>
 </div>
+
+
 <div class="ia-card">
   <div class="ia-image ia-image-coach"></div>
   <h2 class="ia-title">ALTO RENDIMIENTO</h2>
@@ -458,6 +466,8 @@ margin: 0 auto;
     <button class="buy-btn" onclick="location.href='https://buy.stripe.com/enlace-lifetime'">Acceso lifetime – 59,90€</button>
   </div>
 </div>
+<div class="faq-link-wrapper">
+  <button onclick="document.getElementById('faq').scrollIntoView({ behavior: 'smooth' })" class="faq-button">Preguntas Frecuentes</button>
 </div>
 
     </div>
@@ -519,15 +529,22 @@ margin: 0 auto;
     const iaParam = params.get("ia");
 
     if (iaParam) {
-      const cards = document.querySelectorAll(".ia-card");
-      cards.forEach(card => {
-        const title = card.querySelector(".ia-title");
-        if (title && title.textContent.toLowerCase().includes(iaParam.toLowerCase())) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
+  const cards = document.querySelectorAll(".ia-card");
+  cards.forEach(card => {
+    const title = card.querySelector(".ia-title");
+    if (title && title.textContent.toLowerCase().includes(iaParam.toLowerCase())) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+
+  // Asegurarse de que la sección de preguntas frecuentes siempre se muestre
+  const faqSection = document.getElementById("faq");
+  if (faqSection) {
+    faqSection.style.display = "block";
+  }
+}
     }
   });
 </script>
