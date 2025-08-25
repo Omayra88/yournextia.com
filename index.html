@@ -267,6 +267,58 @@ margin: 0 auto;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
+.faq-section {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: #111;
+  border-radius: 15px;
+  border: 2px solid #D4AF37;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #D4AF37;
+  text-transform: uppercase;
+}
+
+.faq-item {
+  margin-bottom: 1.2rem;
+}
+
+.faq-question {
+  background: linear-gradient(90deg, #8B0000, #B22222);
+  color: #fff;
+  padding: 1rem;
+  width: 100%;
+  text-align: left;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+  background: linear-gradient(90deg, #B22222, #8B0000);
+}
+
+.faq-answer {
+  display: none;
+  padding: 1rem;
+  color: #ccc;
+  background: #1c1c1c;
+  border-left: 4px solid #D4AF37;
+  border-radius: 0 0 8px 8px;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
 
   </style>
 </head>
@@ -413,12 +465,52 @@ margin: 0 auto;
 
   <footer>
     <div>
-      <a href="#">Preguntas frecuentes</a>
+      <a href="#faq">Preguntas frecuentes</a>
       <a href="#">Aviso legal</a>
       <a href="#">Política de privacidad</a>
       <a href="mailto:info@yournextia.com">info@yournextia.com</a>
     </div>
     <p>&copy; 2025 YourNextIA. Todos los derechos reservados.</p>
+
+<div id="faq" class="faq-section">
+  <h2 class="faq-title">Preguntas Frecuentes</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Qué incluye la suscripción mensual?</button>
+    <div class="faq-answer">
+      <p>Acceso ilimitado a la IA elegida, soporte prioritario y todas las actualizaciones futuras mientras estés suscrito.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Y si quiero acceso de por vida?</button>
+    <div class="faq-answer">
+      <p>Puedes elegir el plan "lifetime" y pagar solo una vez. Tendrás acceso para siempre, sin pagos mensuales.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Puedo cancelar cuando quiera?</button>
+    <div class="faq-answer">
+      <p>Sí. No hay permanencia. Puedes cancelar desde tu email de confirmación o contactando con nosotros.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Cómo accedo a la IA después de pagar?</button>
+    <div class="faq-answer">
+      <p>Recibirás un email con el enlace directo de acceso y las instrucciones para usarla. Revisa tu bandeja de entrada y la carpeta de spam.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">¿Necesito instalar algo?</button>
+    <div class="faq-answer">
+      <p>No. Puedes usarla desde tu navegador o incluso añadirla como app en tu móvil. Es rápido, fácil y sin descargas.</p>
+    </div>
+  </div>
+</div>
+
   </footer>
 
 <script>
@@ -439,6 +531,15 @@ margin: 0 auto;
     }
   });
 </script>
+<script>
+  document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+      const item = button.parentElement;
+      item.classList.toggle("active");
+    });
+  });
+</script>
+
 
 </body>
 </html>
