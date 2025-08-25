@@ -376,6 +376,8 @@ margin: 0 auto;
 <div class="faq-link-wrapper">
   <a href="?ia=despierta#faq" class="faq-button">Preguntas Frecuentes</a>
 </div>
+</div>
+
 
 
  <div class="ia-card">
@@ -422,6 +424,8 @@ margin: 0 auto;
 <div class="faq-link-wrapper">
   <a href="?ia=biblica#faq" class="faq-button">Preguntas Frecuentes</a>
 </div>
+</div>
+
 
 
 <div class="ia-card">
@@ -465,7 +469,6 @@ margin: 0 auto;
     <button class="buy-btn" onclick="location.href='https://buy.stripe.com/enlace-mensual'">Suscripción mensual – 14,90€</button>
     <button class="buy-btn" onclick="location.href='https://buy.stripe.com/enlace-lifetime'">Acceso lifetime – 59,90€</button>
   </div>
-</div>
 <div class="faq-link-wrapper">
   <a href="?ia=coach#faq" class="faq-button">Preguntas Frecuentes</a>
 </div>
@@ -475,7 +478,7 @@ margin: 0 auto;
 
   <footer>
     <div>
-      <a href="#faq">Preguntas frecuentes</a>
+      <a href="?#faq">Preguntas frecuentes</a>
       <a href="#">Aviso legal</a>
       <a href="#">Política de privacidad</a>
       <a href="mailto:info@yournextia.com">info@yournextia.com</a>
@@ -529,26 +532,25 @@ margin: 0 auto;
     const iaParam = params.get("ia");
 
     if (iaParam) {
-  const cards = document.querySelectorAll(".ia-card");
-  cards.forEach(card => {
-    const title = card.querySelector(".ia-title");
-    if (title && title.textContent.toLowerCase().includes(iaParam.toLowerCase())) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
+      const cards = document.querySelectorAll(".ia-card");
+      cards.forEach(card => {
+        const title = card.querySelector(".ia-title");
+        if (title && !title.textContent.toLowerCase().includes(iaParam.toLowerCase())) {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // Mostrar sección FAQ si tiene el anchor #faq
+    if (window.location.hash === "#faq") {
+      const faqSection = document.getElementById("faq");
+      if (faqSection) {
+        faqSection.style.display = "block";
+      }
     }
   });
 
-  // Asegurarse de que la sección de preguntas frecuentes siempre se muestre
-  const faqSection = document.getElementById("faq");
-  if (faqSection) {
-    faqSection.style.display = "block";
-  }
-}
-    }
-  });
-</script>
-<script>
+  // Para desplegar cada respuesta al hacer clic
   document.querySelectorAll(".faq-question").forEach(button => {
     button.addEventListener("click", () => {
       const item = button.parentElement;
