@@ -420,5 +420,25 @@ margin: 0 auto;
     </div>
     <p>&copy; 2025 YourNextIA. Todos los derechos reservados.</p>
   </footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const iaParam = params.get("ia");
+
+    if (iaParam) {
+      const cards = document.querySelectorAll(".ia-card");
+      cards.forEach(card => {
+        const title = card.querySelector(".ia-title");
+        if (title && title.textContent.toLowerCase().includes(iaParam.toLowerCase())) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
