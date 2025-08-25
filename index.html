@@ -531,15 +531,15 @@ margin: 0 auto;
     const params = new URLSearchParams(window.location.search);
     const iaParam = params.get("ia");
 
-    if (iaParam) {
-      const cards = document.querySelectorAll(".ia-card");
-      cards.forEach(card => {
-        const title = card.querySelector(".ia-title");
-        if (title && !title.textContent.toLowerCase().includes(iaParam.toLowerCase())) {
-          card.style.display = "none";
-        }
-      });
+    if (iaParam && window.location.hash !== "#faq") {
+  const cards = document.querySelectorAll(".ia-card");
+  cards.forEach(card => {
+    const title = card.querySelector(".ia-title");
+    if (title && !title.textContent.toLowerCase().includes(iaParam.toLowerCase())) {
+      card.style.display = "none";
     }
+  });
+}
 
     // Mostrar sección FAQ si tiene el anchor #faq
     if (window.location.hash === "#faq") {
