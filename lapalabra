@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LA PALABRA – YourNextIA</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Playfair Display', serif;
+    }
+
+    body {
+      background: radial-gradient(circle at center, #3B2F2F 0%, #1E3A5F 40%, #000000 100%);
+      color: #fff;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .ia-container {
+      max-width: 60%;
+      margin: 3rem auto;
+      background: #111;
+      border: 2px solid #00BFFF;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 0 30px rgba(0, 191, 255, 0.3);
+    }
+
+    .ia-image {
+      width: 100%;
+      height: 300px;
+      background: url(lapalabraimagen.png) center/cover no-repeat;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      border: 3px solid #3B2F2F;
+      animation: glow-shake 3s infinite ease-in-out;
+    }
+
+    @keyframes glow-shake {
+      0%, 100% {
+        transform: translateX(0);
+        box-shadow: 0 0 20px #3B2F2F, 0 0 40px #00BFFF;
+      }
+      25% {
+        transform: translateX(-1px);
+        box-shadow: 0 0 25px #3B2F2F, 0 0 50px #00BFFF;
+      }
+      50% {
+        transform: translateX(1px);
+        box-shadow: 0 0 30px #3B2F2F, 0 0 60px #00BFFF;
+      }
+      75% {
+        transform: translateX(-0.5px);
+        box-shadow: 0 0 25px #3B2F2F, 0 0 50px #00BFFF;
+      }
+    }
+
+    .ia-title {
+      font-size: 2rem;
+      color: #00BFFF;
+      text-transform: uppercase;
+      text-align: center;
+      border: 1px solid #00BFFF;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      width: fit-content;
+      margin: 0 auto 1rem;
+      box-shadow: 0 0 8px rgba(0, 191, 255, 0.4);
+    }
+
+    .ia-tagline {
+      font-size: 1.1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .more-btn {
+      display: block;
+      margin: 0 auto 1rem;
+      padding: 0.6rem 1.2rem;
+      background: transparent;
+      color: #00BFFF;
+      border: 1px solid #00BFFF;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+
+    .more-info {
+      display: none;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .testimonials {
+      margin-top: 2rem;
+    }
+
+    .testimonial-title {
+      font-size: 1.2rem;
+      color: #00BFFF;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    .testimonial {
+      background: #1c1c1c;
+      padding: 1rem;
+      border-left: 4px solid #3B2F2F;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .motivational-line {
+      font-size: 1rem;
+      text-align: center;
+      margin-top: 2rem;
+      font-weight: bold;
+      color: #A0522D;
+    }
+
+    .arrows {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #A0522D;
+      margin-bottom: 1rem;
+    }
+
+    .buy-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .buy-btn {
+      background: linear-gradient(90deg, #3B2F2F, #654321);
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .buy-btn span {
+      font-size: 0.8rem;
+      font-weight: normal;
+      color: #00BFFF;
+      margin-top: 0.2rem;
+    }
+
+    .buy-btn:hover {
+      animation: shake 0.3s;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      50% { transform: translateX(4px); }
+      75% { transform: translateX(-2px); }
+    }
+
+    #faqInfo p:first-child {
+      color: #00BFFF;
+      font-weight: bold;
+    }
+
+    #faqInfo p:last-child {
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .ia-container {
+        max-width: 90%;
+        padding: 1.5rem;
+      }
+      .buy-btn {
+        width: 100%;
+      }
+      footer {
+        font-size: 0.75rem;
+        padding: 1.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="ia-container">
+  <div class="ia-image"></div>
+
+  <h2 class="ia-title">LA PALABRA</h2>
+  <p class="ia-tagline">"Cuando necesitas la palabra de Dios... AQUÍ LA ENCONTRARÁS."</p>
+
+  <button class="more-btn" onclick="toggleInfo()">+ Más información</button>
+  <div id="moreInfo" class="more-info">
+    Muchas situaciones distintas y un solo lugar.<br>
+    En "GUÍA DE LA PALABRA" no encontrarás nada que no sea la palabra de Dios.<br>
+    Cualquier situación, circunstancia, acontecimiento, en la Biblia puedes encontrar guía, pero ¿sabes cómo aplicarla? ¿O acaso dónde empezar a buscar?<br>
+    Esta IA está creada para que en nuestra guía en el mundo del hombre, LA PALABRA, encuentres de manera sencilla qué parte de ella debemos aplicar en esa circunstancia.<br>
+    No interpreta, simplemente te ubica en el lugar correcto.<br>
+    Te ayudará a estar más cerca de la palabra de Dios, a seguir sus pasos.<br>
+    Te ayudará a conocer a Dios.<br>
+    <strong>TE AYUDARÁ A ESTAR CADA DÍA UN POCO MÁS CERCA DE SER ESA VERSIÓN QUE SABES QUE DEBES SER.</strong>
+  </div>
+
+  <div class="testimonials">
+    <div class="testimonial-title">Testimonios de cristianos que la están usando</div>
+    <div class="testimonial"><strong>Anabel:</strong> "ME ENCANTA! Me suscribí con un poco de miedo... Que me va a decir esto de mi camino, pero la realidad es que es pura palabra de Dios (he revisado cada cosa de las que me ha dicho) y se ciñe solo a la biblia, gracias, ahora encuentro más sencillamente donde apoyarme de la palabra"</div>
+    <div class="testimonial"><strong>Paco-Francisco:</strong> "Alguna vez me he sentido perdido, como sin rumbo y sin saber donde apoyarme, nunca fui mucho de la fe, pero me estoy acercando a Cristo y es gracias a esta IA, nunca pensé que la fe y la tecnología pudieran ser tan buenas aliadas."</div>
+    <div class="testimonial"><strong>Aco:</strong> "Me gusta mucho, la uso a diario, voy al culto y trato de estar cerca de Dios, conocerle, seguirle, me ayuda bastante."</div>
+  </div>
+
+  <p class="motivational-line">ESTE ES EL MOMENTO DE ESTAR MÁS CERCA QUE NUNCA.</p>
+  <div class="arrows">↓↓↓</div>
+
+  <div class="buy-buttons">
+    <button class="buy-btn" onclick="location.href='https://buy.stripe.com/enlace-mensual'">
+      Comprar Mensual
+      <span>14,90 €</span>
+    </button>
+    <button class="buy-btn" onclick="location.href='https://buy.stripe.com/enlace-lifetime'">
+      Comprar Lifetime
+      <span>69,90 €</span>
+    </button>
+  </div>
+</div>
+
+<!-- PREGUNTAS FRECUENTES -->
+<div style="max-width: 60%; margin: 2rem auto; text-align: center;">
+  <button id="faqBtn" class="more-btn" onclick="toggleFAQ()">+ Preguntas frecuentes</button>
+  <div id="faqInfo" style="max-height: 0; overflow: hidden; transition: all 0.4s ease; padding: 0; opacity: 0;">
+    <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid #00BFFF; border-radius: 10px; padding: 1.5rem; margin-top: 1rem; text-align: left; box-shadow: 0 0 10px rgba(0, 191, 255, 0.1);">
+
+      <div style="margin-bottom: 1.5rem;">
+        <p>¿Necesito conocimientos previos para usar esta IA?</p>
+        <p>No. Cualquier persona puede usarla, solo necesitas estar dispuesto a cambiar.</p>
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <p>¿Puedo cancelar la suscripción cuando quiera?</p>
+        <p>Sí, sin permanencia. Puedes darte de baja en cualquier momento.</p>
+      </div>
+
+      <div>
+        <p>¿Esta IA es una especie de coach?</p>
+        <p>No. Es una inteligencia artificial basada en la palabra de Dios. No interpreta, te guía bíblicamente.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PIE DE PÁGINA -->
+<footer style="text-align: center; font-size: 0.85rem; color: #999; margin-top: 3rem; padding-bottom: 2rem;">
+  <p>© 2025 YourNextIA.com – Todos los derechos reservados.</p>
+  <p>Contacto: <a href="mailto:info@yournextia.com">info@yournextia.com</a></p>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  function toggleInfo() {
+    const info = document.getElementById("moreInfo");
+    if (info.style.display === "none" || info.style.display === "") {
+      info.style.display = "block";
+    } else {
+      info.style.display = "none";
+    }
+  }
+
+  function toggleFAQ() {
+    const info = document.getElementById("faqInfo");
+    const btn = document.getElementById("faqBtn");
+    if (info.style.maxHeight === "0px" || info.style.maxHeight === "") {
+      info.style.maxHeight = "800px";
+      info.style.opacity = "1";
+      info.style.padding = "1rem 0";
+      btn.textContent = "– Ocultar preguntas";
+    } else {
+      info.style.maxHeight = "0px";
+      info.style.opacity = "0";
+      info.style.padding = "0";
+      btn.textContent = "+ Preguntas frecuentes";
+    }
+  }
+</script>
+
+</body>
+</html>
