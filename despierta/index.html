@@ -29,15 +29,34 @@
       box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
     }
 
-    .ia-image {
-      width: 100%;
-      height: 300px;
-      background: url(despiertaimagen.png) center/cover no-repeat;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      border: 3px solid #8B0000;
-      box-shadow: 0 0 20px #8B0000;
-    }
+    @keyframes glow-shake {
+  0%, 100% {
+    transform: translateX(0);
+    box-shadow: 0 0 20px #8B0000, 0 0 40px #D4AF37;
+  }
+  25% {
+    transform: translateX(-1px);
+    box-shadow: 0 0 25px #8B0000, 0 0 50px #FFD700;
+  }
+  50% {
+    transform: translateX(1px);
+    box-shadow: 0 0 30px #8B0000, 0 0 60px #FFCC00;
+  }
+  75% {
+    transform: translateX(-0.5px);
+    box-shadow: 0 0 25px #8B0000, 0 0 50px #FFD700;
+  }
+}
+
+.ia-image {
+  width: 100%;
+  height: 300px;
+  background: url(despiertaimagen.png) center/cover no-repeat;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 3px solid #8B0000;
+  animation: glow-shake 3s infinite ease-in-out;
+}
 
     .ia-title {
       font-size: 2rem;
