@@ -234,6 +234,47 @@
       }
     }
   </script>
+<!-- PREGUNTAS FRECUENTES -->
+<div style="max-width: 60%; margin: 2rem auto; text-align: center;">
+  <button id="faqBtn" class="more-btn" onclick="toggleFAQ()">+ Preguntas frecuentes</button>
+  <div id="faqInfo" class="more-info" style="max-height: 0; overflow: hidden; transition: all 0.4s ease; padding: 0;">
+    <p><strong>¿Necesito conocimientos previos para usar esta IA?</strong><br>
+    No. Cualquier persona puede usarla, solo necesitas estar dispuesto a cambiar.</p>
 
+    <p><strong>¿Puedo cancelar la suscripción cuando quiera?</strong><br>
+    Sí, sin permanencia. Puedes darte de baja en cualquier momento.</p>
+
+    <p><strong>¿Esta IA es una especie de coach?</strong><br>
+    No. Es una inteligencia artificial confrontativa. No te acaricia el ego, te despierta.</p>
+  </div>
+</div>
+
+<!-- PIE DE PÁGINA -->
+<footer style="text-align: center; font-size: 0.85rem; color: #999; margin-top: 3rem; padding-bottom: 2rem;">
+  <p>© 2025 YourNextIA.com – Todos los derechos reservados.</p>
+  <p>Contacto: <a href="mailto:contacto@yournextia.com" style="color: #ccc;">contacto@yournextia.com</a></p>
+</footer>
+
+<script>
+  function toggleInfo() {
+    const info = document.getElementById("moreInfo");
+    info.style.display = (info.style.display === "none" || info.style.display === "") ? "block" : "none";
+  }
+
+  function toggleFAQ() {
+    const info = document.getElementById("faqInfo");
+    const btn = document.getElementById("faqBtn");
+
+    if (info.style.maxHeight === "0px" || info.style.maxHeight === "") {
+      info.style.maxHeight = "500px";
+      info.style.padding = "1rem 0";
+      btn.textContent = "– Ocultar preguntas";
+    } else {
+      info.style.maxHeight = "0px";
+      info.style.padding = "0";
+      btn.textContent = "+ Preguntas frecuentes";
+    }
+  }
+</script>
 </body>
 </html>
