@@ -177,6 +177,70 @@
       50% { transform: translateX(4px); }
       75% { transform: translateX(-2px); }
     }
+@media (max-width: 768px) {
+  .ia-container {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .ia-title {
+    font-size: 1.5rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .ia-tagline {
+    font-size: 1rem;
+  }
+
+  .more-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .testimonial-title {
+    font-size: 1.1rem;
+  }
+
+  .testimonial {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+
+  .motivational-line {
+    font-size: 0.95rem;
+  }
+
+  .arrows {
+    font-size: 1.3rem;
+  }
+
+  .buy-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .buy-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.9rem;
+  }
+
+  .buy-btn span {
+    font-size: 0.8rem;
+  }
+
+  #faqInfo div {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  footer {
+    font-size: 0.75rem;
+    padding: 1.5rem 1rem;
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -237,15 +301,17 @@
 <!-- PREGUNTAS FRECUENTES -->
 <div style="max-width: 60%; margin: 2rem auto; text-align: center;">
   <button id="faqBtn" class="more-btn" onclick="toggleFAQ()">+ Preguntas frecuentes</button>
-  <div id="faqInfo" class="more-info" style="max-height: 0; overflow: hidden; transition: all 0.4s ease; padding: 0;">
-    <p><strong>¿Necesito conocimientos previos para usar esta IA?</strong><br>
-    No. Cualquier persona puede usarla, solo necesitas estar dispuesto a cambiar.</p>
+  <div id="faqInfo" style="max-height: 0; overflow: hidden; transition: all 0.4s ease; padding: 0; opacity: 0;">
+    <div style="text-align: left; margin-top: 1rem; color: #ccc; font-size: 0.95rem;">
+      <p><strong>¿Necesito conocimientos previos para usar esta IA?</strong><br>
+      No. Cualquier persona puede usarla, solo necesitas estar dispuesto a cambiar.</p>
 
-    <p><strong>¿Puedo cancelar la suscripción cuando quiera?</strong><br>
-    Sí, sin permanencia. Puedes darte de baja en cualquier momento.</p>
+      <p><strong>¿Puedo cancelar la suscripción cuando quiera?</strong><br>
+      Sí, sin permanencia. Puedes darte de baja en cualquier momento.</p>
 
-    <p><strong>¿Esta IA es una especie de coach?</strong><br>
-    No. Es una inteligencia artificial confrontativa. No te acaricia el ego, te despierta.</p>
+      <p><strong>¿Esta IA es una especie de coach?</strong><br>
+      No. Es una inteligencia artificial confrontativa. No te acaricia el ego, te despierta.</p>
+    </div>
   </div>
 </div>
 
@@ -255,26 +321,25 @@
   <p>Contacto: <a href="mailto:contacto@yournextia.com" style="color: #ccc;">contacto@yournextia.com</a></p>
 </footer>
 
+<!-- SCRIPTS -->
 <script>
-  function toggleInfo() {
-    const info = document.getElementById("moreInfo");
-    info.style.display = (info.style.display === "none" || info.style.display === "") ? "block" : "none";
-  }
-
   function toggleFAQ() {
     const info = document.getElementById("faqInfo");
     const btn = document.getElementById("faqBtn");
 
     if (info.style.maxHeight === "0px" || info.style.maxHeight === "") {
-      info.style.maxHeight = "500px";
+      info.style.maxHeight = "800px";
+      info.style.opacity = "1";
       info.style.padding = "1rem 0";
       btn.textContent = "– Ocultar preguntas";
     } else {
       info.style.maxHeight = "0px";
+      info.style.opacity = "0";
       info.style.padding = "0";
       btn.textContent = "+ Preguntas frecuentes";
     }
   }
 </script>
+
 </body>
 </html>
